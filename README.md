@@ -1,31 +1,45 @@
-# curriculum-databases-projects-template
+## BookStore
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
+Bookstore is an app to show the name of the Book and their Auhtors, you can see de status of the book and you can add a new book in the store.
+
+## Built With
+
+<img alt="React Badge" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><br>
+<img alt="HTML Badge" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"><br>
+<img alt="CSS Badge" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"><br>
+<img alt="JavaScript Badge" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"><br>
 
 
 ## Getting Started
 
-This repository includes files with plain SQL that can be used to recreate a database:
+Clone this repo : https://github.com/jdbs9514/React-Bookstore.git
 
-- Use [schema.sql](./schema.sql) to create all tables.
-- Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
+the run:
+
+```markdown
+npm install
+npm start
+```
+
+The `npm install` command installs all dependencies used in the project while `npm start` is used to start the development server and view the application on the browser.
 
 
-## Authors
+To get a local copy up and running follow these simple example steps.
 
-👤 **Author1**
+### Prerequisites
+- Basic Knowledge of Javascript
+- Basic Css or Scss
+- Previously expirience with React
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+## Author
 
-👤 **Author2**
+👤 **Josué David Benavides Salinas**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@jdbs9514](https://github.com/jdbs9514)
+- Twitter: [@JODA1015](https://twitter.com/JODA1015)
+- LinkedIn: [Josué](https://linkedin.com/in/josue-benavides-617749b2)
+
+
 
 ## 🤝 Contributing
 
