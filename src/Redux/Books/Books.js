@@ -1,7 +1,21 @@
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
 
-const reducerBook = (state = [], action) => {
+const firstState = [
+  {
+    title: 'The Hunger Games',
+    author: 'Author1',
+    id: 1,
+  },
+
+  {
+    title: 'Harry Potter',
+    author: 'Author2',
+    id: 2,
+  },
+];
+
+const reducerBook = (state = firstState, action) => {
   switch (action.type) {
     case ADD_BOOK:
       return [

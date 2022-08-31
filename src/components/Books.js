@@ -1,14 +1,27 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook } from '../Redux/Books/Books';
+
 function Book() {
-  return (
-    <div className="container">
+  const books = useSelector((state) => state.reducerBook);
+  const dispatch = useDispatch();
+  return (books.map((book) => (
+    <div key={book.id} className="container">
       <div className="infocard">
         <span>Action</span>
-        <h1>The hunger games</h1>
-        <p>Suzanne Collins</p>
+        <h1>{book.title}</h1>
+        <p>{book.author}</p>
         <ul>
-          <li>Comments |</li>
-          <li>Remove |</li>
-          <li>Edit</li>
+          <button type="button">Comments</button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(removeBook(book.id));
+            }}
+          >
+            Remove
+          </button>
+          <button type="button">Edit</button>
         </ul>
       </div>
       <div className="porcentage">
@@ -20,7 +33,7 @@ function Book() {
         <button type="button" className="update">UPDATE PROGRESS</button>
       </div>
     </div>
-  );
+  )));
 }
 
 export default Book;
