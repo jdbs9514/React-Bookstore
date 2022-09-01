@@ -1,10 +1,20 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../Redux/Books/Books';
+import { booksLoadThunk, deleteBookThunk } from '../Redux/Books/Books';
 
 function Book() {
-  const books = useSelector((state) => state.reducerBook);
+  const bookList = useSelector((state) => state.bookList);
   const dispatch = useDispatch();
-  return (books.map((book) => (
+
+  useEffect(() => {
+    dispatch(booksLoadThunk());
+  }, []);
+
+  const handle = (e) => {
+    dispatch(deleteBookThunk(e.target.id));
+  };
+
+  return (bookList.map((book) => (
     <div key={book.id} className="container">
       <div className="infocard">
         <span>Action</span>
@@ -12,15 +22,7 @@ function Book() {
         <p>{book.author}</p>
         <ul>
           <button type="button">Comments</button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(removeBook(book.id));
-            }}
-          >
-            Remove
-          </button>
+          <button type="button" id={book.id} onClick={handle}>Remove</button>
           <button type="button">Edit</button>
         </ul>
       </div>
@@ -30,7 +32,7 @@ function Book() {
       <div className="feature">
         <h4>Current Charapter</h4>
         <h4>Chapter 17</h4>
-        <button type="button" className="update">UPDATE PROGRESS</button>
+        <button type="submit" className="update">UPDATE PROGRESS</button>
       </div>
     </div>
   )));

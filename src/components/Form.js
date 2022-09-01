@@ -1,18 +1,50 @@
 import { useDispatch } from 'react-redux/es/exports';
-import React, { useRef } from 'react';
-import uniqid from 'uniqid';
-import { bookAdd } from '../Redux/Books/Books';
+import React, { useState } from 'react';
+import { bookAddThunk } from '../Redux/Books/Books';
 
 function Form() {
   const dispatch = useDispatch();
-  const title = useRef(null);
-  const author = useRef(null);
+  const [state, setState] = useState({
+    title: '',
+    author: '',
+    category: '',
+  });
+
+  const handle = (e) => {
+    setState({
+      ...state, [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(bookAddThunk(state));
+    setState({
+      title: '',
+      author: '',
+      category: '',
+    });
+  };
 
   return (
-    <form className="form">
-      <input ref={title} type="text" className="inputbook" placeholder="Book" required />
-      <input ref={author} type="text" className="inputauthor" placeholder="Author" required />
-      <button type="button" className="submit" onClick={() => dispatch(bookAdd(title.current.value, author.current.value, uniqid()))}>Submit</button>
+    <form className="form" onSubmit={handleSubmit}>
+      <input
+        name="title"
+        type="text"
+        onChange={handle}
+        value={state.title}
+        className="inputbook"
+        placeholder="Book"
+      />
+      <input
+        name="author"
+        type="text"
+        onChange={handle}
+        value={state.author}
+        className="inputauthor"
+        placeholder="Author"
+      />
+      <button type="submit" className="submit">Submit</button>
     </form>
   );
 }
