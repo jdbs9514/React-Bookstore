@@ -32,7 +32,7 @@ function Book() {
       <div className="feature">
         <h4>Current Charapter</h4>
         <h4>Chapter 17</h4>
-        <button type="button" className="update">UPDATE PROGRESS</button>
+        <button type="submit" className="update">UPDATE PROGRESS</button>
       </div>
     </div>
   )));

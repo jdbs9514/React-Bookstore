@@ -6,8 +6,8 @@ const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
 const LOAD_BOOKS = 'bookstore-react-app/books/LOAD_BOOKS';
 
-const apiId = '9cd8bf2ce0da4527b038';
-const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const apiId = 'vLQEXE4To5sPvRWJWora';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
 
 export const booksLoadThunk = createAsyncThunk(LOAD_BOOKS, async () => {
   const response = await axios.get(`${URL}/${apiId}/books`).catch((err) => {
@@ -59,4 +59,3 @@ const storeSlice = createSlice({
 
 export const booksList = (state) => state.bookList;
 export default storeSlice.reducer;
-// '9cd8bf2ce0da4527b038'
