@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux/es/exports';
 import React, { useState } from 'react';
 import { bookAddThunk } from '../Redux/Books/Books';
+import './style/Form.css';
 
 function Form() {
   const dispatch = useDispatch();
@@ -26,26 +27,43 @@ function Form() {
     });
   };
 
+  const handleChanges = (e) => {
+    setState({
+      ...state, [e.target.name]: e.target.value,
+    });
+  };
+
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <input
-        name="title"
-        type="text"
-        onChange={handle}
-        value={state.title}
-        className="inputbook"
-        placeholder="Book"
-      />
-      <input
-        name="author"
-        type="text"
-        onChange={handle}
-        value={state.author}
-        className="inputauthor"
-        placeholder="Author"
-      />
-      <button type="submit" className="submit">Submit</button>
-    </form>
+    <section className="form-section">
+      <hr />
+      <h1>ADD NEW BOOK</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          name="title"
+          type="text"
+          onChange={handle}
+          value={state.title}
+          className="inputbook"
+          placeholder="Book"
+        />
+        <input
+          name="author"
+          type="text"
+          onChange={handle}
+          value={state.author}
+          className="inputauthor"
+          placeholder="Author"
+        />
+        <select className="category" value={state.category} name="category" onChange={handleChanges}>
+          <option value="History">History</option>
+          <option value="Romance">Romance</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Science">Science</option>
+          <option value="Technology">Technology</option>
+        </select>
+        <button type="submit" className="submit">Submit</button>
+      </form>
+    </section>
   );
 }
 
